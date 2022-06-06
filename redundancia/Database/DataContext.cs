@@ -19,7 +19,7 @@ namespace redundancia.Database
         {
             var folder = Environment.SpecialFolder.LocalApplicationData;
             var path = Environment.GetFolderPath(folder);
-            DBPath = $"{path}{System.IO.Path.DirectorySeparatorChar}lriviere.db";
+            DBPath = $"{path}{System.IO.Path.DirectorySeparatorChar}BaseDatos.db";
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)

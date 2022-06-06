@@ -1,0 +1,604 @@
+{
+	"info": {
+		"_postman_id": "73498e8a-207b-4058-b27b-3075eedfa15c",
+		"name": "LRiviere",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "8167931"
+	},
+	"item": [
+		{
+			"name": "CLIENTES",
+			"item": [
+				{
+					"name": "Get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base}}/api/clientes",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"api",
+								"clientes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base}}/api/clientes?id=1",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"api",
+								"clientes"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Nombres\":\"Jose Lema Otavalo\",\r\n    \"Direccion\":\" sn y principal\",\r\n    \"Telefono\":\"098254785\",\r\n    \"Contraseña\":\"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base}}/api/clientes",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"api",
+								"clientes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Put",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Nombres\":\"Jose Lema Otavalo\",\r\n    \"Identificacion\":\"1234567890\",\r\n    \"Direccion\":\" sn y principal\",\r\n    \"Telefono\":\"098254785\",\r\n    \"Contraseña\":\"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base}}/api/clientes?id=1",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"api",
+								"clientes"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base}}/api/clientes?id=1",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"api",
+								"clientes"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CUENTAS",
+			"item": [
+				{
+					"name": "Get",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{autenticacion}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base}}/api/cuentas",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"api",
+								"cuentas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{autenticacion}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base}}/api/cuentas?id=1",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"api",
+								"cuentas"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{autenticacion}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Nombres\":\"Jose Lema Otavalo\",\r\n    \"Direccion\":\" sn y principal\",\r\n    \"Telefono\":\"098254785\",\r\n    \"Contraseña\":\"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base}}/api/cuentas",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"api",
+								"cuentas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Put",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{autenticacion}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Nombres\":\"Jose Lema Otavalo\",\r\n    \"Identificacion\":\"1234567890\",\r\n    \"Direccion\":\" sn y principal\",\r\n    \"Telefono\":\"098254785\",\r\n    \"Contraseña\":\"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base}}/api/cuentas?id=1",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"api",
+								"cuentas"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{autenticacion}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base}}/api/cuentas?id=1",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"api",
+								"cuentas"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reporte",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{autenticacion}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base}}/api/cuentas/reporte?id=1&fecha=04062022,07062022",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"api",
+								"cuentas",
+								"reporte"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								},
+								{
+									"key": "fecha",
+									"value": "04062022,07062022"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "MOVIMIENTOS",
+			"item": [
+				{
+					"name": "Get",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{autenticacion}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base}}/api/movimientos",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"api",
+								"movimientos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{autenticacion}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base}}/api/movimientos?id=1",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"api",
+								"movimientos"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{autenticacion}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Nombres\":\"Jose Lema Otavalo\",\r\n    \"Direccion\":\" sn y principal\",\r\n    \"Telefono\":\"098254785\",\r\n    \"Contraseña\":\"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base}}/api/movimientos",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"api",
+								"movimientos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Put",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{autenticacion}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Nombres\":\"Jose Lema Otavalo\",\r\n    \"Identificacion\":\"1234567890\",\r\n    \"Direccion\":\" sn y principal\",\r\n    \"Telefono\":\"098254785\",\r\n    \"Contraseña\":\"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base}}/api/movimientos?id=1",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"api",
+								"movimientos"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{autenticacion}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base}}/api/movimientos?id=1",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"api",
+								"movimientos"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reporte",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{autenticacion}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base}}/api/cuentas/reporte?id=1&fecha=04062022,07062022",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"api",
+								"cuentas",
+								"reporte"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								},
+								{
+									"key": "fecha",
+									"value": "04062022,07062022"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reporte Copy",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{autenticacion}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base}}/api/cuentas/reporte?id=1&fecha=04062022,07062022",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"api",
+								"cuentas",
+								"reporte"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								},
+								{
+									"key": "fecha",
+									"value": "04062022,07062022"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base",
+			"value": "http://localhost:5001"
+		},
+		{
+			"key": "autenticacion",
+			"value": "Basic MTIzNDU2Nzg5MDoxMjM0"
+		}
+	]
+}

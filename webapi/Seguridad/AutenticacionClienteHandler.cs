@@ -47,7 +47,7 @@ namespace webapi.Seguridad
                 var principal = new ClaimsPrincipal(identity);
                 var ticket = new AuthenticationTicket(principal, Scheme.Name);
 
-                AuthenticateResult.Success(ticket);
+                return AuthenticateResult.Success(ticket);
             }
             catch(ArgumentException ex)
             {
@@ -55,10 +55,9 @@ namespace webapi.Seguridad
             }
             catch (Exception ex)
             {
-                return AuthenticateResult.Fail("Authorization no valida");
+                return AuthenticateResult.Fail($"Authorization no valida, {ex.Message}");
             }
 
-            return AuthenticateResult.Fail("Falta implementar");
         }
     }
 }

@@ -93,7 +93,7 @@ namespace webapi.Controllers
 
             RepositorioMovimientos.Eliminar(movimientoDb);
 
-            return CreatedAtAction("Get", new { id = id });
+            return CreatedAtAction("Get", new { id });
 
         }
 

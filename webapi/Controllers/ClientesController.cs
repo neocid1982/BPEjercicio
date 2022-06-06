@@ -81,7 +81,7 @@ namespace webapi.Controllers
 
             RepositorioClientes.Eliminar(clienteDb);
 
-            return CreatedAtAction("Get", new { id = id });
+            return CreatedAtAction("Get", new { id });
 
         }
 

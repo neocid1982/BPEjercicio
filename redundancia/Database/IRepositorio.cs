@@ -11,6 +11,5 @@ namespace redundancia.Database
         void Eliminar(T entidad);
         void Actualizar(T entidad);
         T ObtenerPorId(int id);
-        IQueryable<T> Listar(ParametrosQuery<T> parametrosQuery);
     }
 }

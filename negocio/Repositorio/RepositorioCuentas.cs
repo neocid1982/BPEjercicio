@@ -35,5 +35,19 @@ namespace negocio.Repositorio
         {
             new Repositorio<Cuenta>().Eliminar(cuenta);
         }
+
+        internal static bool ValidarRetiroDiarioCupo(Movimiento movimiento, out decimal topeDiarioCuenta)
+        {
+            var cuenta = RepositorioCuentas.Obtener(movimiento.CuentaId);
+            topeDiarioCuenta = cuenta.CupoDiario;
+            var movimientosDia = RepositorioMovimientos.DebitoDia(movimiento.CuentaId);
+            return movimientosDia >= topeDiarioCuenta;
+                
+        }
+
+        public static IEnumerable<Movimiento> MovimientosXRango(int id, DateTime? desde, DateTime? hasta)
+        {
+            return new Repositorio<Movimiento>().Listar(e => e.CuentaId == id && e.Fecha >= desde && e.Fecha <= hasta);
+        }
     }
 }

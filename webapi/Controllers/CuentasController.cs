@@ -39,7 +39,7 @@ namespace webapi.Controllers
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
-            var cuenta = RepositorioCuentas.Obtener(id);
+            var cuenta = RepositorioMovimientos.Obtener(id);
 
             if (cuenta == null)
                 return NotFound($"No se encontró cuenta {id}");
@@ -53,7 +53,7 @@ namespace webapi.Controllers
             if (id != cuenta.Id)
                 return BadRequest();
 
-            var cuentaDb = RepositorioCuentas.Obtener(id);
+            var cuentaDb = RepositorioMovimientos.Obtener(id);
 
             if (cuentaDb == null)
                 return NotFound($"No se encontró cuenta {id}");
@@ -85,16 +85,42 @@ namespace webapi.Controllers
         public IActionResult Delete(int id)
         {
 
-            var cuentaDb = RepositorioCuentas.Obtener(id);
+            var cuentaDb = RepositorioMovimientos.Obtener(id);
 
             if (cuentaDb == null)
                 return NotFound($"No se encontró cuenta {id}");
 
-            RepositorioCuentas.Eliminar(cuentaDb);
+            RepositorioMovimientos.Eliminar(cuentaDb);
 
-            return CreatedAtAction("Get", new { id = id });
+            return CreatedAtAction("Get", new { id });
 
         }
 
+        /*Generar reporte (Estado de cuenta) especificando un rango de fechas y un cliente, 
+            visualice las cuentas asociadas con sus respectivos saldos y el total de débitos y créditos 
+            realizados durante las fechas de ese cliente. (resultado en Json) */
+        [HttpGet("/reporte/{id},{fecha}")]
+        public IActionResult Reporte(int id, string fecha)
+        {
+            if (string.IsNullOrEmpty(fecha))
+                return BadRequest("Se requiere el parametro fecha (desde,hasta)");
+
+            if(!fecha.Contains(','))
+                return BadRequest("Se requiere rango de fecha (desde,hasta)");
+
+            var rango = fecha.Split(',');
+
+            DateTime? desde = Convert.ToDateTime(rango[0]);
+
+            if(desde == null)
+                return BadRequest("Rango de inicio no es fecha valida");
+
+            DateTime? hasta = Convert.ToDateTime(rango[1]);
+            
+            if (hasta == null)
+                return BadRequest("Rango de fin no es fecha valida");
+
+            return Ok(RepositorioCuentas.MovimientosXRango(id, desde, hasta));
+        }
     }
 }

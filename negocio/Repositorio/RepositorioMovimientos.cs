@@ -29,14 +29,57 @@ namespace negocio.Repositorio
             new Repositorio<Movimiento>().Actualizar(movimiento);
         }
 
-        public static void Agregar(Movimiento Movimiento)
+        /*Reglas de negocio para movimientos*/
+        public static void Agregar(Movimiento movimiento)
         {
-            new Repositorio<Movimiento>().Agregar(Movimiento);
+            movimiento = ReglasNegocio(movimiento);
+            new Repositorio<Movimiento>().Agregar(movimiento);
         }
 
         public static void Eliminar(Movimiento Movimiento)
         {
             new Repositorio<Movimiento>().Eliminar(Movimiento);
+        }
+
+        internal static decimal DebitoDia(int cuentaId)
+        {
+            var hoy = DateTime.Now.Date.ToString();
+            decimal debito = 0;
+            try
+            {
+                debito = new Repositorio<Movimiento>().Listar(e => e.CuentaId == cuentaId
+                    && e.TipoMovimiento == redundancia.Enumeradores.EnumTipoMovimiento.Debito
+                    && e.Fecha.Date.Equals(hoy)).Sum(e => e.Valor);
+            }catch(Exception)
+            {
+                //No halla movimientos
+            }
+
+            return debito;
+
+        }
+
+        private static Movimiento ReglasNegocio(Movimiento movimiento)
+        {
+            if (movimiento.TipoMovimiento == redundancia.Enumeradores.EnumTipoMovimiento.Debito)
+            {
+                /*Los valores cuando son crédito son positivos, y los débitos son negativos. Debe 
+                almacenarse el saldo disponible en cada transacción dependiendo del tipo de movimiento. 
+                (suma o resta)*/
+                if (movimiento.Valor > 0)
+                    movimiento.Valor *= -1;
+
+                /*Si el saldo es cero, y va a realizar una transacción débito, debe desplegar mensaje “Saldo no disponible” */
+                if (movimiento.Saldo <= 0)
+                    throw new InvalidOperationException("Saldo no disponible");
+
+                /*Se debe tener un parámetro de limite diario de retiro (valor tope 1000$)*/
+                /*Si el cupo disponible ya se cumplió no debe permitir realizar un debito y debe desplegar un mensaje “Cupo diario Excedido” */
+                if (Repositorio.RepositorioCuentas.ValidarRetiroDiarioCupo(movimiento, out decimal topeDiarioCuenta))
+                    throw new InvalidOperationException($"Cupo diario Excedido $ {topeDiarioCuenta}");
+            }
+
+            return movimiento;
         }
     }
 }
