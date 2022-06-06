@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32228.343
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "webapi", "webapi\webapi.csproj", "{40E501CF-3872-46AA-B15D-EBB0722B1F0B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "redundancia", "redundancia\redundancia.csproj", "{8179AF1C-27E3-4300-81DD-75B3F0A94620}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "negocio", "negocio\negocio.csproj", "{065503F4-6296-462F-AAD8-C61243A18234}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{40E501CF-3872-46AA-B15D-EBB0722B1F0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40E501CF-3872-46AA-B15D-EBB0722B1F0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40E501CF-3872-46AA-B15D-EBB0722B1F0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40E501CF-3872-46AA-B15D-EBB0722B1F0B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8179AF1C-27E3-4300-81DD-75B3F0A94620}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8179AF1C-27E3-4300-81DD-75B3F0A94620}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8179AF1C-27E3-4300-81DD-75B3F0A94620}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8179AF1C-27E3-4300-81DD-75B3F0A94620}.Release|Any CPU.Build.0 = Release|Any CPU
+		{065503F4-6296-462F-AAD8-C61243A18234}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{065503F4-6296-462F-AAD8-C61243A18234}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{065503F4-6296-462F-AAD8-C61243A18234}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{065503F4-6296-462F-AAD8-C61243A18234}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E34A6553-CE3A-4FD2-B391-5EC32F7876C3}
+	EndGlobalSection
+EndGlobal
